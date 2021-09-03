@@ -8,8 +8,9 @@ const Dashboard = () => {
     const {tasks, setTasks} = useContext(TaskContext)
     
     const [isloading, setIsLoading] = useState(false)
-    const [taskPerPage, setTaskPerPage] = useState(20)
+    const [taskPerPage, setTaskPerPage] = useState(15)
     const [currentPage, setCurrentPage] = useState(1)
+    const [toggle, setToggle] = useState(1)
 
     useEffect(() => {
         setIsLoading(true)
@@ -34,9 +35,28 @@ const Dashboard = () => {
 
     //Paginate 
     const paginate = (page) =>setCurrentPage(page)
+
+    //Sorting tasks in accordance to status
+    const done = tasks.filter(task => task.completed===true)
+    const inProgress = tasks.filter(task => task.completed===false)
+    function handleStatusSort(){
+        if(toggle){
+            setTasks([...done, ...inProgress])
+            setToggle(1-toggle);
+        }else{
+            setTasks([...inProgress, ...done])
+            setToggle(1-toggle);
+        }
+
+    }
+
+
     return (
-        <div>
-            <Tasks tasks={tasksForPage} isLoading={isloading} />
+        <div className="dashboardContainer">
+            <Tasks 
+                tasks={tasksForPage} 
+                isLoading={isloading}
+                handleStatusSort={handleStatusSort} />
             <Pagination 
                 taskPerPage={taskPerPage} 
                 totalTasks={tasks.length}

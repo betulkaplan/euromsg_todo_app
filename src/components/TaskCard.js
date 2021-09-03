@@ -7,9 +7,15 @@ const TaskCard = ({task}) => {
     const user = people.filter(item => item.id === task.userId)
     function handleDelete(e){
         e.preventDefault();
-        const tempArr = tasks.filter(item => item.id!==task.id)
-        console.log(tempArr)
-        setTasks([...tempArr])
+
+        fetch(`https://jsonplaceholder.typicode.com/posts/${task.id}`, {
+            method: 'DELETE',
+        }).then(res=> {
+            if(res.status===200) {
+                const tempArr = tasks.filter(item => item.id!==task.id)
+                setTasks([...tempArr])
+            }
+        });
 
 
     }
