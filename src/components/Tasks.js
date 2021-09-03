@@ -1,8 +1,9 @@
 import React from 'react'
 import TaskCard from './TaskCard'
 import './tasksStyle.css'
+import { BiChevronUp, BiChevronDown } from "react-icons/bi";
 
-const Tasks = ({tasks, isLoading, handleStatusSort}) => {
+const Tasks = ({tasks, isLoading, handleStatusSort, toggle}) => {
 
     if(isLoading) return <h1>Loading...</h1>
     return (
@@ -12,7 +13,7 @@ const Tasks = ({tasks, isLoading, handleStatusSort}) => {
                     <th>#</th>
                     <th>Title</th>
                     <th>Assignee</th>
-                    <th onClick={handleStatusSort}>Status</th>
+                    <th onClick={handleStatusSort} className="status">Status {toggle?<BiChevronUp />:<BiChevronDown />}</th>
                     <th>Actions</th>
                 </tr>
             </thead>

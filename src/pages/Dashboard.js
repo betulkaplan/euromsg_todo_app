@@ -56,7 +56,8 @@ const Dashboard = () => {
             <Tasks 
                 tasks={tasksForPage} 
                 isLoading={isloading}
-                handleStatusSort={handleStatusSort} />
+                handleStatusSort={handleStatusSort}
+                toggle={toggle} />
             <Pagination 
                 taskPerPage={taskPerPage} 
                 totalTasks={tasks.length}
