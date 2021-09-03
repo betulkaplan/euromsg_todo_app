@@ -8,7 +8,7 @@ const Dashboard = () => {
     const {tasks, setTasks} = useContext(TaskContext)
     
     const [isloading, setIsLoading] = useState(false)
-    const [taskPerPage, setTaskPerPage] = useState(15)
+    const [taskPerPage, setTaskPerPage] = useState(10)
     const [currentPage, setCurrentPage] = useState(1)
     const [toggle, setToggle] = useState(1)
 
