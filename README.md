@@ -1,4 +1,7 @@
 Project Link -->> https://euromsg-case.herokuapp.com/
+
+!(Lang_cards3.gif)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
