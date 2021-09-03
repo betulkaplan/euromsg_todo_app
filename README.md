@@ -1,6 +1,6 @@
 Project Link -->> https://euromsg-case.herokuapp.com/
 
-!(Lang_cards3.gif)
+![Project Snapshot](Lang_cards3.gif)
 
 # Getting Started with Create React App
 
